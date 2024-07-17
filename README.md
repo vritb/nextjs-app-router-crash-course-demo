@@ -6,7 +6,18 @@ This is the source for a demo app used in my [Next.js Crash Course YouTube Video
 - Nested Routes & Layouts
 - Simplified Data Fetching
 - Streaming & Suspense
+  
 
+# These are my modifications and steps taken to James Quick project
+- Code
+  - Get it building without errors and warnings related to node, nextjs
+  - Check what needs/ can be updated
+- Appwrite
+  - Creating a new project in appwrite with my existing account
+  - setting up database
+    - create _eventdemo_ database
+    - create _events_ collection
+      
 ## Appwrite Setup
 
 Appwrite (backend as a service platform) is the sponsor of this video and demo. We use Appwrite to store event data that we query from Next.js to demo React Server Components, asynchronous data fetching, and loading states!
