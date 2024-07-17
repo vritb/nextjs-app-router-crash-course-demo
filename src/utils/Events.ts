@@ -22,7 +22,7 @@ export const createEvent = async (event: Event): Promise<Event> => {
 
 export const getEventById = async (id: string): Promise<Event> => {
   const event = (await appwriteDatabase.getDocument(
-    process.env.APPWRITE_DATABASE_ID || '',
+    process.env.APPWRITE_EVENTDEMO_DATABASE_ID || '',
     process.env.APPWRITE_EVENTS_COLLECTION_ID || '',
     id
   )) as unknown as Event;
