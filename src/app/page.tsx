@@ -1,3 +1,4 @@
+import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components';
 import Link from 'next/link';
 
 export default function Home() {
@@ -12,6 +13,9 @@ export default function Home() {
       <Link href="/events" className="p-4 rounded-md bg-white text-blue-950">
         View Events
       </Link>
+        <LoginLink>Sign in</LoginLink>
+      
+      <RegisterLink>Sign up</RegisterLink>
     </main>
   );
 }

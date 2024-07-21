@@ -1,10 +1,19 @@
 import React from 'react';
+import { createEvent } from '@/app/actions';
+import type {Event} from '@/app/actions';
+import { redirect } from 'next/navigation';
 
-export default async function NewEventForm(formData: FormData) {
-  async function addEventHandler() {
-    //!Not working and don't know why :)
-    'use server';
+export default function NewEventForm() {
+  const addEventHandler = async function (formData:FormData ){
+  "use server";
+    
     console.log('Handle form submission');
+    let newEvent = {} as Event;
+    newEvent.name = formData.get("name")?.toString() || '';
+    newEvent.Description = formData.get("description")?.toString() || '';
+    newEvent.date = new Date(formData.get("date")?.toString() || '');
+    createEvent(newEvent);
+    redirect('/events');
   }
 
   return (
@@ -13,9 +22,7 @@ export default async function NewEventForm(formData: FormData) {
         <label
           className="block text-gray-200 text-sm font-bold mb-2"
           htmlFor="name"
-        >
-          Event Name
-        </label>
+        >Event Name</label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
           id="name"
@@ -28,9 +35,7 @@ export default async function NewEventForm(formData: FormData) {
         <label
           className="block text-gray-200 text-sm font-bold mb-2"
           htmlFor="date"
-        >
-          Event Date
-        </label>
+        >Event Date</label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
           id="date"
@@ -43,9 +48,7 @@ export default async function NewEventForm(formData: FormData) {
         <label
           className="block text-gray-200 text-sm font-bold mb-2"
           htmlFor="description"
-        >
-          Event Description
-        </label>
+        >Event Description</label>
         <textarea
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
           id="description"
@@ -57,9 +60,7 @@ export default async function NewEventForm(formData: FormData) {
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Create Event
-        </button>
+        >Create Event</button>
       </div>
     </form>
   );

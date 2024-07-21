@@ -8,7 +8,8 @@ export default function navbar() {
         <Link href="/">Home</Link>
         <div className="flex gap-4">
           <Link href="/events">Events</Link>
-          <Link href="/events">Discord</Link>
+          <Link href="/discord">Discord</Link>
+          <Link href="/volker">Volker</Link>
         </div>
       </nav>
     </header>

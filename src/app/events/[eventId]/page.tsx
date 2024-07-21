@@ -1,16 +1,20 @@
-import { getEventById } from '@/utils/Events';
+"use client";
+import { getEventById } from '../../utils/_Events.ts';
 import React from 'react';
-import EventDetails from './EventDetails';
-import { NextPage } from 'next';
-import { PageProps } from '../../../../.next/types/app/layout';
-const delay = (delayInms: number) => {
-  return new Promise((resolve) => setTimeout(resolve, delayInms));
-};
+import EventDetails from './EventDetails'; 
 
-export default async function EventDetailsPage({ params }: PageProps) {
-  await delay(2000);
-  const id = params.eventId;
-  const event = await getEventById(id);
+interface PageProps {
+  params: { eventId: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+/*
+export default function Page({ params, searchParams }: PageProps) {
+ // ...
+}
+*/
+export default async function EventDetailsPage({params, searchParams}: PageProps) {
+  const event = await getEventById(params.eventId);
+
   return (
     <div>
       <EventDetails event={event} />
