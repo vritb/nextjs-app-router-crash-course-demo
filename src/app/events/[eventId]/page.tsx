@@ -1,5 +1,5 @@
 "use client";
-import { getEventById } from '../../utils/_Events.ts';
+import { getEventById } from '@/app/actions';
 import React from 'react';
 import EventDetails from './EventDetails'; 
 

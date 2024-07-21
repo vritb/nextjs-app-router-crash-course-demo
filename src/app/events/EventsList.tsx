@@ -1,4 +1,4 @@
-import { getEvents } from '../utils/_Events.ts';
+import { getEvents } from '@/app/actions';
 import Link from 'next/link';
 import React from 'react';
 
